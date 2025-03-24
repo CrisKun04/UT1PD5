@@ -1,0 +1,136 @@
+-----------------------------
+MÉTODOS DE LA CLASE STRING
+-----------------------------
+
+1) substring()
+-----------------------------
+- Devuelve una parte de la cadena.
+- dos tipos
+    a) substring(int beginIndex): desde beginIndex hasta el final.   
+    b) substring(int beginIndex, int endIndex): desde beginIndex hasta endIndex (sin incluir).
+
+Ejemplo:
+String texto = "Hola Mundo";
+System.out.println(texto.substring(5));          // "Mundo"
+System.out.println(texto.substring(0, 4));       // "Hola"
+
+2) split()
+-----------------------------
+- Divide la cadena en partes usando un delimitador (regex).
+- Variantes:
+    a) split(String regex)
+    b) split(String regex, int limit): límite en la cantidad de partes.
+
+Ejemplo:
+String texto = "uno,dos,tres";
+String[] partes = texto.split(",");
+System.out.println(partes[0]);                  // "uno"
+System.out.println(partes[1]);                  // "dos"
+System.out.println(partes[2]);                  // "tres"
+
+String[] partesLimit = texto.split(",", 2);
+System.out.println(partesLimit[0]);             // "uno"
+System.out.println(partesLimit[1]);             // "dos,tres"
+
+3) subSequence()
+-----------------------------
+- Devuelve una subsecuencia de la cadena (como substring).
+- Equivalente a substring(int, int), pero devuelve CharSequence.
+
+Ejemplo:
+String texto = "Hola Mundo";
+CharSequence subSec = texto.subSequence(0, 4);
+System.out.println(subSec);                     // "Hola"
+
+4) trim()
+-----------------------------
+- Elimina los espacios en blanco al principio y al final de la cadena.
+
+Ejemplo:
+String texto = "   Hola Mundo   ";
+System.out.println(texto.trim());               // "Hola Mundo"
+
+5) toLowerCase()
+-----------------------------
+- Convierte la cadena a minúsculas.
+
+Ejemplo:
+String texto = "HOLA Mundo";
+System.out.println(texto.toLowerCase());        // "hola mundo"
+
+6) toUpperCase()
+-----------------------------
+- Convierte la cadena a mayúsculas.
+
+Ejemplo:
+String texto = "hola mundo";
+System.out.println(texto.toUpperCase());        // "HOLA MUNDO"
+
+7) indexOf()
+-----------------------------
+- Devuelve la posición de la primera aparición de un carácter o string.
+- Variantes:
+    a) indexOf(int ch)
+    b) indexOf(String str)
+    c) indexOf(int ch, int fromIndex)
+    d) indexOf(String str, int fromIndex)
+
+Ejemplo:
+String texto = "Hola Mundo Hola";
+System.out.println(texto.indexOf('a'));                // 3
+System.out.println(texto.indexOf("Mundo"));            // 5
+System.out.println(texto.indexOf('o', 5));             // 7
+System.out.println(texto.indexOf("Hola", 6));          // 11
+
+8) lastIndexOf()
+-----------------------------
+- Devuelve la última posición de un carácter o string.
+- Variantes:
+    a) lastIndexOf(int ch)
+    b) lastIndexOf(String str)
+    c) lastIndexOf(int ch, int fromIndex)
+    d) lastIndexOf(String str, int fromIndex)
+
+Ejemplo:
+String texto = "Hola Mundo Hola";
+System.out.println(texto.lastIndexOf('a'));             // 14
+System.out.println(texto.lastIndexOf("Hola"));          // 11
+System.out.println(texto.lastIndexOf('o', 10));         // 7
+System.out.println(texto.lastIndexOf("Hola", 10));      // 0
+
+9) contains()
+-----------------------------
+- Verifica si la cadena contiene una secuencia de caracteres.
+
+Ejemplo:
+String texto = "Hola Mundo";
+System.out.println(texto.contains("Mundo"));            // true
+System.out.println(texto.contains("Adiós"));            // false
+
+10) replace()
+-----------------------------
+- Reemplaza un carácter o secuencia por otro.
+- Variantes:
+    a) replace(char oldChar, char newChar)
+    b) replace(CharSequence target, CharSequence replacement)
+
+Ejemplo:
+String texto = "Hola Mundo";
+System.out.println(texto.replace('o', '0'));            // "H0la Mund0"
+System.out.println(texto.replace("Mundo", "Amigo"));    // "Hola Amigo"
+
+11) replaceAll()
+-----------------------------
+- Reemplaza todas las coincidencias que cumplan con una expresión regular.
+
+Ejemplo:
+String texto = "abc123abc";
+System.out.println(texto.replaceAll("[a-z]", "-"));     // "---123---"
+
+12) replaceFirst()
+-----------------------------
+- Reemplaza la primera coincidencia que cumpla con una expresión regular.
+
+Ejemplo:
+String texto = "abc123abc";
+System.out.println(texto.replaceFirst("[a-z]", "-"));   // "-bc123abc"

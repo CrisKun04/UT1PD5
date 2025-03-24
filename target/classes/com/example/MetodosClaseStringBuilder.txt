@@ -1,0 +1,100 @@
+StringBuilder Class
+
+StringBuilder so lo mismo que string, solo que si son mutables 
+Lenght and capacity
+.Lenght returns the length of characters in the string builder 
+.Capacity returns la cantidad de espacios libres. (Al crear una stringBuilder por defeccto tiene 16 capacity)
+
+StringBuilder() --> Esto lo crea
+StringBuilder sb = new StringBuilder("Hola)
+	--> tiene un length de 4 y una capacity de largo de la palabra ingresado(4) + 16 de por defecto.
+
+StringBuilder(CharSecuence cs) --> solo especifica el tipo de contenido
+				--> La capacidad inicial será longitud del contenido + 16.
+
+StringBuilder(int intCapacity) --> solo especifica el la capacidad.
+
+StringBuilder(String s) --> solo especifica el tipo de contenido
+			-->La capacidad inicial será longitud del string + 16.
+
+	StringBuilder sb = new StringBuilder("Hola");
+	System.out.println("Contenido: " + sb);              // Hola
+	System.out.println("Longitud: " + sb.length());      // 4
+	System.out.println("Capacidad: " + sb.capacity());   // 4 + 16 = 20
+
+SetLength (int newLength)
+		--> si length > newLength, se corta el exeso del contenido. (osea todo depsues del length del newLwngth)
+		--> si length < newlength, se llena el resto de espacios vacios con null.
+Ej:
+	StringBuilder sb = new StringBuilder("Hola Mundo");
+	sb.setLength(4);  // Corta el contenido después del índice 4
+	System.out.println("Cortado: " + sb);  // Hola
+
+	sb.setLength(10);  // Aumenta el tamaño llenando con null chars (no se ven)
+	System.out.println("Aumentado:" + sb + ".");  // Hola + caracteres invisibles
+	System.out.println("Nueva Longitud: " + sb.length());  // 10
+
+
+ensureCapacity(int minCapacity)
+		--> solo verifica si el stringBuilder tenga al menos el largo indicado, y si no lo es extiende el StringBuilder
+	EJ:
+	StringBuilder sb = new StringBuilder();
+	System.out.println("Capacidad antes: " + sb.capacity());  // 16
+	sb.ensureCapacity(30);  // Si es menor a 30, la aumenta
+	System.out.println("Capacidad después: " + sb.capacity());  // Depende de cálculo interno, pero mínimo 30
+
+
+
+	Agregar elementos
+StringBuilder append(poneleCualquierTipo tipocualquiera)
+		--> Agrega un elemento
+		--> Simpre convierte todo a string y no deja el tipo que se ingreso. 
+
+	Eliminar elementos
+StringBuilder delete (int start, int end)
+	--> Elimina en un intervalo
+	
+	EJ:
+	StringBuilder sb = new StringBuilder("Hola ");
+	sb.append("Mundo");
+	sb.append(123);
+	sb.append(true);
+	System.out.println(sb);  // Hola Mundo123true
+
+
+StringBuilder deleteCharAt(int index )
+		--> Elimina un elemento de un indice especifico
+    EJ:
+	StringBuilder sb = new StringBuilder("Hola");
+	sb.deleteCharAt(2);  // Elimina la letra 'l' (índice 2)
+	System.out.println(sb);  // Hoa
+
+StringBuilder insert(int offset, TipoCualquieraPonele tipo)
+		-->offset (Empieza desde 0, es como el indice ) es el espacio donde quieres guardar el elemento
+        --> Va a correr los elemtnos que estan despues a mas para atras
+		-->Siempre se va a guardar un string, osea sea lo que le pases, lo pasa a string antes de ingresarlo
+
+
+	Reemplazar elementos 
+StringBuilder replace(int start, int end, String s)
+
+	EJ:
+	StringBuilder sb = new StringBuilder("Hola Mundo");
+	sb.replace(5, 10, "Amigo");  // Reemplaza 'Mundo' con 'Amigo'
+	System.out.println(sb);  // Hola Amigo
+
+
+void setCharAt(int index, char c)
+
+
+
+	Dar vuelta el StringBuilder
+StringBuilder reverse()	Reverses the sequence of characters in this string builder.
+
+
+	Para imprimir el contenido
+String toString()	Returns a string that contains the character sequence in the builder.
+			(Igual se debe poner dentro de un system.out.println();)
+
+
+
